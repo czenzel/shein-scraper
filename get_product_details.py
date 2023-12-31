@@ -67,8 +67,8 @@ options.add_argument('--user-agent=' + GET_UA())
 options.add_argument('--incognito')
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--ignore-ssl-errors')
-options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-chrome_drvier_binary = '/opt/homebrew/bin/chromedriver'
+options.binary_location = '/usr/bin/google-chrome'
+chrome_drvier_binary = '/usr/bin/chromedriver'
 driver = webdriver.Chrome(service=Service(chrome_drvier_binary), options=options)
 
 pending_urls = url_collection.find({"status": "pending"}).sort("timestamp", 1)
