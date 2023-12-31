@@ -107,8 +107,8 @@ options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--user-agent=' + GET_UA())
 options.add_argument('--incognito')
-options.binary_location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-chrome_drvier_binary = '/opt/homebrew/bin/chromedriver'
+options.binary_location = '/usr/bin/google-chrome'
+chrome_drvier_binary = '/usr/bin/chromedriver'
 driver = webdriver.Chrome(service=Service(chrome_drvier_binary), options=options)
 
 for url in urls:

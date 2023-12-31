@@ -1,5 +1,3 @@
-# run.sh
 #!/bin/bash
-
-python get_products.py
-python get_product_details.py
+python3 get_products.py
+python3 get_product_details.py

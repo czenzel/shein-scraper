@@ -20,7 +20,7 @@ RUN rm -f "google-chrome-stable_current_amd64.deb"
 RUN apt-get install -y unzip
 RUN wget -q "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip"
 RUN unzip "chromedriver-linux64.zip"
-RUN cp "chromedriver-linux64/chromedriver" "/usr/bin"
+RUN cp "chromedriver-linux64/chromedriver" "/usr/bin/chromedriver"
 RUN rm -rf "chromedriver-linux64"
 RUN rm -f "chromedriver-linux64.zip"
 
@@ -33,8 +33,10 @@ RUN pip3 install -r requirements.txt
 # Copy the files to the machine
 COPY . .
 
+# Convert files from dos2unix
+RUN apt-get install -y dos2unix
+RUN dos2unix "/app/run.sh"
+
 # Run the provided script to retrive product information
 # Commented out for future project(s)
-# CMD ["./run.sh"]
-
-CMD ["bash"]
+CMD ["bash", "/app/run.sh"]
